@@ -1,0 +1,18 @@
+@startuml
+actor User as U
+participant Routing as R
+participant Controller as C
+participant BusinessLogic as BL
+participant Model as M
+participant Serializer as S
+
+U -> R: получает HTTP-запрос
+R -> C: перенаправляет запрос
+C -> BL: вызывает сервисы с бизнес-логикой
+BL -> M: делает запрос на получение, обновление данных
+M --> BL: отправляет результат
+BL --> C: возвращает данные для ответа
+C -> S: направляет данные
+S --> C: возвращает сериализованные данные
+C --> U: отправляет HTTP-ответ
+@enduml

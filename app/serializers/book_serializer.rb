@@ -5,5 +5,5 @@ class BookSerializer
 
   root_key :book
 
-  attributes :id, :title, :insno
+  attributes :id, :title, :insno, :authors, :genres
 end
